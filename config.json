@@ -1,9 +1,9 @@
 {
   "customComponentItems": {
-    "Downloader": {
-      "name": "Downloader",
+    "excelFile": {
+      "name": "excelFile",
       "imagePath": "preview/downloader.png",
-      "description": "导出excel自定义组件",
+      "description": "MOMA积分导入组件",
       "itemInputs": [
         {
           "fieldName": "nameExcelFile",

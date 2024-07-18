@@ -137,14 +137,14 @@ const onconfirm = () => {
             tableData.XLSX = failData;//报错数据
             if (failData.length > 0) {
                 isConfirmed = confirm("上传失败，是否导出错误数据?");
-                if (isConfirmed) return dialog.template({
+                if (isConfirmed) dialog.template({
                     data: uploadData.failData
                 }, dialog.failName)
             } else {
                 alert("上传成功");
                 emit("refresh");
-                closeDialog()
             }
+            closeDialog()
         })
     }
 };

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "read-excel-file": "^5.7.1",
-    "vue": "^3.3.4",
+    "vue": "^3.4.3",
     "write-excel-file": "^1.4.27",
     "zion-mdapi": "^2.1.7"
   },

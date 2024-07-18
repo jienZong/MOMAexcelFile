@@ -52,8 +52,6 @@
 </template>
 
 <script setup lang="ts" name="excelFile">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import { ref, reactive, onMounted } from "vue";
 import "element-plus/dist/index.css";
 import {

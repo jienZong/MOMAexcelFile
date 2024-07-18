@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import writeXlsxFile from 'write-excel-file';
 import readXlsxFile from 'read-excel-file';
 /** 导出模板 */

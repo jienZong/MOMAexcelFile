@@ -2,7 +2,7 @@
   "customComponentItems": {
     "excelFile": {
       "name": "excelFile",
-      "imagePath": "preview/downloader.png",
+      "imagePath": "preview/excelFile.png",
       "description": "MOMA积分导入组件",
       "itemInputs": [
         {
@@ -16,5 +16,5 @@
       ]
     }
   },
-  "version": "0.0.3"
+  "version": "0.0.4"
 }

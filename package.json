@@ -9,8 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.3.1",
-    "element-plus": "^2.7.7",
     "read-excel-file": "^5.7.1",
     "vue": "^3.3.4",
     "write-excel-file": "^1.4.27",

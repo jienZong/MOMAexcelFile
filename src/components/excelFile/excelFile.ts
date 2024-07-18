@@ -73,7 +73,7 @@ export async function exportPointsDistribution(fileData: any, fileName: any = '�
 }
 
 /** 积分发放导入 */
-export async function ImportPointsDistribution(mdapi: any, tableData: any, callback: (title: any, XLSX: any, failData: any) => {}, percentageFun: Function) {
+export async function ImportPointsDistribution(mdapi: any, tableData: any, callback: (title: any, XLSX: any, failData: any) => {}) {
 
     // title: 表头  XLSX: 表单数据  
     const { title, XLSX } = tableData
@@ -83,11 +83,7 @@ export async function ImportPointsDistribution(mdapi: any, tableData: any, callb
     const amount = title.findIndex((item: any) => item?.includes('发放数量'));
     //查找描述所在位置
     const describe = title.findIndex((item: any) => item?.includes('发放描述'));
-    //创建进度条对象
-    const percentage = {
-        current: 0,
-        count: XLSX.length,
-    }
+   
     //循环数据并重新遍历格式
     const data = XLSX.map((item: any) => {
         return {
@@ -96,15 +92,6 @@ export async function ImportPointsDistribution(mdapi: any, tableData: any, callb
             aim_describe: item?.[describe] ?? null,
         }
     })
-
-    // 来一个定时器, 进行一个进度条的加载
-    let time = setInterval(() => {
-        percentage.current += percentage.count * 0.01;
-        if (Math.floor((percentage.current / percentage.count) * 100) >= 99) {
-            clearInterval(time)
-        };
-        percentageFun(percentage)
-    }, 100);
 
     //调用接口上传数据
     // callback(title, XLSX, data);
@@ -115,13 +102,8 @@ export async function ImportPointsDistribution(mdapi: any, tableData: any, callb
     }).then((res: any) => {
         const { fail } = res.data
         callback(title, XLSX, fail);
-        
     }).catch((err: any) => {
         const { fail } = err.info.data
         callback(title, XLSX, fail);
-    }).finally(() => {
-        percentage.current = percentage.count;
-        clearInterval(time)
-        percentageFun(percentage)
     })
 }

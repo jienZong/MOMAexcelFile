@@ -143,11 +143,12 @@ const onconfirm = () => {
             } else {
                 alert("上传成功");
                 emit("refresh");
+                closeDialog()
             }
         })
     }
 };
 </script>
-<style >
+<style>
     @import url("style.css");  
 </style>

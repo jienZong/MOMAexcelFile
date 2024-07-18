@@ -1,4 +1,4 @@
-import excelFile from './excelFile/index.vue';
+import momaexcelFile from './momaexcelFile/index.vue';
 
-export default { excelFile };
+export default { momaexcelFile };
  

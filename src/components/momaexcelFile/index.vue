@@ -1,5 +1,5 @@
 <template>
-    <div class="excelFile">
+    <div class="momaexcelFile">
         <button type="button" class="el-button el-button--primary" @click="openDialog">
             <span class="">{{ nameExcelFile }}</span>
         </button>
@@ -66,9 +66,9 @@
     </div>
 </template>
 
-<script setup lang="ts" name="excelFile">
+<script setup lang="ts" name="momaexcelFile">
 import { ref, reactive } from "vue";
-import * as excelFile from "./excelFile";
+import * as momaexcelFile from "./momaexcelFile";
 import zionMdapi from "zion-mdapi";
 const props = defineProps({
     nameExcelFile: {
@@ -102,8 +102,8 @@ const uploadData = reactive({
 const openDialog = () => {
     console.log("openDialog");
     dialog.isShowDialog = true;
-    dialog.template = excelFile.exportPointsDistribution;
-    dialog.import = excelFile.ImportPointsDistribution;
+    dialog.template = momaexcelFile.exportPointsDistribution;
+    dialog.import = momaexcelFile.ImportPointsDistribution;
     dialog.failName = "积分发放失败数据.xlsx";
 };
 // 关闭弹窗
@@ -116,7 +116,7 @@ const closeDialog = () => {
 /**文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用 */
 const onchange = (files: any) => {
     dialog.filesName = files.name;
-    excelFile
+    momaexcelFile
         .ImportFile(files!)
         .then((res: { title: any[]; XLSX: any[] }) => {
             tableData.title = res.title;
@@ -148,3 +148,6 @@ const onconfirm = () => {
     }
 };
 </script>
+<style >
+    @import url("style.css");  
+</style>

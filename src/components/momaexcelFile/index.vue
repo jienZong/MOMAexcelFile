@@ -136,8 +136,25 @@ const onconfirm = () => {
             uploadData.failData = failData;//报错数据
             tableData.XLSX = failData;//报错数据
             if (failData.length > 0) {
-                isConfirmed = confirm("上传失败，是否导出错误数据?");
+                isConfirmed = confirm("上传失败，是否导出上传失败的数据?");
                 if (isConfirmed) dialog.template({
+                    schema: [{
+                        column: '用户ID',
+                        type: Number,
+                        value: (student: any) => student.aim_user_pk
+                    }, {
+                        column: '发放数量',
+                        type: Number,
+                        value: (student: any) => student.amount
+                    }, {
+                        column: '发放描述',
+                        type: String,
+                        value: (student: any) => student.aim_describe
+                    }, {
+                        column: '错误原因',
+                        type: String,
+                        value: (student: any) => student.reason
+                    }],
                     data: uploadData.failData
                 }, dialog.failName)
             } else {
@@ -150,5 +167,5 @@ const onconfirm = () => {
 };
 </script>
 <style>
-    @import url("style.css");  
+@import url("style.css");
 </style>

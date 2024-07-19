@@ -100,7 +100,7 @@ export async function ImportPointsDistribution(mdapi: any, tableData: any, callb
         "actionflow_name": "个人中心管理_批量发放积分",
         "payload": { data }
     }).then((res: any) => {
-        const { fail } = res.data
+        const { fail } = res
         callback(title, XLSX, fail);
     }).catch((err: any) => {
         const { fail } = err.info.data

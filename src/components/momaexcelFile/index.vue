@@ -1,6 +1,6 @@
 <template>
     <div class="momaexcelFile">
-        <button type="button" class="el-button el-button--primary" @click="openDialog">
+        <button type="button" class="el-button el-button--primary" @click="openDialog" :style="style">
             <span class="">{{ nameExcelFile }}</span>
         </button>
         <div class="el-overlay" style="z-index: 2014" v-if="dialog.isShowDialog">
@@ -79,6 +79,10 @@ const props = defineProps({
         type: String,
         default: "",
     },
+    style:{
+        type: String,
+        default: "",
+    }
 });
 // 定义子组件向父组件传值/事件
 const emit = defineEmits(["refresh"]);
